@@ -1,0 +1,11 @@
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie, label_method: :title, value_method: :id, include_blank: false %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+  <i class="fa-regular fa-trash-can"></i>
+<% end %>
+<p><%= link_to "Back", lists_path %></p>
+
+<%# f.association :company, label_method: :company_name, value_method: :id, include_blank: false %>
